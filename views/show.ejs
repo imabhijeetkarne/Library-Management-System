@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post In Detail</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h2 {
+      text-align: center;
+      color: #007bff;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .container p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .container h3 {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    .container h3 span {
+      color: #555;
+      font-weight: normal;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Here is your post in detail</h2>
+    <p> id: <%= library._id %></p>
+    <div>
+      <h3>Book Name: <span><%= library.Bookname %></span></h3><br><br>
+      <h3>Author Name: <span><%= library.Author %></span></h3><br><br>
+      <h3>Username: <span><%= library.Username %></span></h3><br><br>
+      <h3>Mobile No: <span><%= library.Mobile_no %></span></h3><br><br>
+      <h3>Date Issued: <span><%= library.DateIssued %></span></h3><br>
+      <h3>Last Date to Submit: <span><%= library.LastDateToSubmit %></span></h3>
+    </div>
+  </div>
+</body>
+</html>

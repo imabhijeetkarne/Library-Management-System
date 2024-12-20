@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Form</title>
+</head>
+<body>
+  <style>
+
+    /* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f9;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Form Container */
+form {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 500px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #4a90e2;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+/* Form Fields */
+div {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+input[type="text"], 
+input[type="tel"], 
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus, 
+input[type="tel"]:focus, 
+input[type="date"]:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+  outline: none;
+}
+
+input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+/* Submit Button */
+button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-size: 1em;
+  background: #4a90e2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background: #357abd;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  form {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  button {
+    padding: 10px;
+  }
+}
+
+  </style>
+  <form method="post" action="/library"> 
+    <h1>Library Management</h1>
+    <div>
+      <label>Book Name:</label>
+      <input type="text" name="Bookname" placeholder="Enter the book name" required>
+    </div>
+    <div>
+      <label>Author Name:</label>
+      <input type="text" name="Author" placeholder="Enter the author name" required>
+    </div>
+    <div>
+      <label>Username:</label>
+      <input type="text" name="Username" placeholder="Enter your username" required>
+    </div>
+    <div>
+      <label>Mobile No:</label>
+      <input type="tel" name="Mobile_no" placeholder="Enter your mobile number" pattern="[0-9]{10}" required>
+    </div>
+    <div>
+      <label>Date Issued:</label>
+      <input type="date" name="DateIssued" required>
+    </div>
+    <div>
+      <label>Last Date to Submit:</label>
+      <input type="date" name="LastDateToSubmit" required>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+
+
+
+  
+</body>
+</html>

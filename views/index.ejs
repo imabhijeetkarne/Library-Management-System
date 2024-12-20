@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Posts</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .toast {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #4caf50; /* Default green color for success */
+      color: white;
+      padding: 15px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      z-index: 1000;
+    }
+
+    .toast.error {
+      background-color: #f44336; /* Red color for error */
+    }
+
+    .toast.edit {
+      background-color: #2196f3; /* Blue color for edit */
+    }
+
+    .toast.delete {
+  background-color: #f44336; /* Red color for delete */
+}
+    
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    
+  </style>
+  
+</head>
+<body>
+  <h1>Library Management System</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Book Name</th>
+        <th>Author Name</th>
+        <th>Username</th>
+        <th>Mobile No</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(library of library){ %>
+        <tr>
+          <td><%= library.Bookname %></td>
+          <td><%= library.Author %></td>
+          <td><%= library.Username %></td>
+          <td><%= library.Mobile_no %></td>
+          <td>
+            <a href="http://localhost:8080/library/<%= library._id %>">
+              <button class="detail">See in Detail</button>
+            </a>
+            <a href="http://localhost:8080/library/<%= library._id %>/edit">
+              <button class="edit">Edit</button>
+            </a>
+            <form action="/library/<%= library._id%>?_method=Delete" method="post">
+              <button class="delete">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+
+  <form method="GET" action="/library/new">
+    <div>
+    <a href="http://localhost:8080/library/new"><button class="create">Create a New Post</button></a>
+  </div>
+  </form>
+
+  
+  <!-- Toast for Add -->
+  <div id="add-toast" class="toast">Post added successfully!</div>
+  <!-- Toast for Edit -->
+  <div id="edit-toast" class="toast">Post edited successfully!</div>
+  <!-- Toast for Delete -->
+  <div id="delete-toast" class="toast">Post deleted successfully!</div>
+
+  <script>
+    (function () {
+      const urlParams = new URLSearchParams(window.location.search); // Get query parameters
+  
+      const addToast = document.getElementById("add-toast");
+      const editToast = document.getElementById("edit-toast");
+      const deleteToast = document.getElementById("delete-toast");
+  
+      // Show appropriate toast based on query parameter
+      if (urlParams.get("success") === "true") {
+        addToast.textContent = "Post added successfully!";
+        addToast.classList.add("show");
+      } else if (urlParams.get("success") === "false") {
+        addToast.textContent = "Failed to add the post. Please try again.";
+        addToast.classList.add("show", "error");
+      }
+  
+      if (urlParams.get("edit") === "true") {
+        editToast.textContent = "Post edited successfully!";
+        editToast.classList.add("show", "edit");
+      } else if (urlParams.get("edit") === "false") {
+        editToast.textContent = "Failed to edit the post. Please try again.";
+        editToast.classList.add("show", "error");
+      }
+  
+      if (urlParams.get("delete") === "true") {
+        deleteToast.textContent = "Post deleted successfully!";
+        deleteToast.classList.add("show", "delete");  // Add delete class for red toast
+      } else if (urlParams.get("delete") === "false") {
+        deleteToast.textContent = "Failed to delete the post. Please try again.";
+        deleteToast.classList.add("show", "error");
+      }
+  
+      // Hide the toast after 3 seconds
+      setTimeout(() => {
+        addToast.classList.remove("show");
+        editToast.classList.remove("show");
+        deleteToast.classList.remove("show");
+      }, 3000);
+    })();
+  </script>
+  
+</body>
+</html>
