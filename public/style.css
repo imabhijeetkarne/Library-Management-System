@@ -1,54 +1,42 @@
 /* General Styles */
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5; /* Light background for better readability */
+  color: #333333; /* Standard text color */
   margin: 0;
   padding: 0;
-  background: #f4f4f9;
-  color: #333;
-  line-height: 1.6;
 }
 
+/* Header Section */
 h1 {
   text-align: center;
+  color: #2f6d36; /* Dark green for the title */
   margin: 20px 0;
-  color: #4a90e2;
-  font-size: 2.5em;
 }
 
-/* Table Styles */
+/* Table Styling */
 table {
-  width: 90%;
+  width: 80%;
   margin: 20px auto;
   border-collapse: collapse;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background: #ffffff;
-  border-radius: 8px;
-  overflow: hidden;
+  background-color: #ffffff; /* White background for the table */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-thead {
-  background: #4a90e2;
-  color: #fff;
-}
-
-thead th {
-  padding: 15px;
+th, td {
+  padding: 10px 15px;
   text-align: left;
-  font-weight: bold;
+  border: 1px solid #dddddd; /* Light border for cell separation */
 }
 
-tbody tr {
-  border-bottom: 1px solid #e0e0e0;
-  transition: background 0.3s;
-}
-
-tbody tr:hover {
-  background: #f9f9f9;
+th {
+  background-color: #2f6d36; /* Dark green header */
+  color: #ffffff; /* White text */
+  text-transform: uppercase;
 }
 
 td {
-  padding: 15px;
-  text-align: left;
+  color: #555555; /* Subtle gray text */
 }
 
 /* Button Styles */
@@ -56,7 +44,7 @@ button {
   color: black;
   /* border: 2px darkblue solid; */
   padding: 8px 12px;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   font-size: 0.9em;
   transition: background 0.3s;
@@ -78,30 +66,33 @@ a {
   background-color: green;
 }
 
-.detail{
-  background-color: rgb(255, 204, 0);
-  margin-bottom: 3px;
+.detail {
+  background-color: #2f6d36; /* Green for 'See in Detail' */
+  color: #ffffff; /* White text for contrast */
+  margin-bottom: 4px;
 }
 
-.detail:hover{
-  background-color: rgb(239, 175, 47);
+.detail:hover {
+  background-color: #245227; /* Darker green on hover */
 }
 
-.edit{
-  background-color: rgb(251, 126, 18);
-  margin-bottom: 3px;
+.edit {
+  background-color: #4caf50; /* Light green for 'Edit' */
+  color: #ffffff;
+  margin-bottom: 4px;
 }
 
-.edit:hover{
-  background-color: rgb(255, 104, 49);
+.edit:hover {
+  background-color: #2f6d36; /* Primary green on hover */
 }
 
-.delete{
-  background-color: rgb(252, 74, 74);
+.delete {
+  background-color: #a71d2a; /* Dark red for 'Delete' */
+  color: #ffffff;
 }
 
-.delete:hover{
-  background-color: red;
+.delete:hover {
+  background-color: #7b131e; /* Even darker red on hover */
 }
 /* Create New Post Button */
 div {
